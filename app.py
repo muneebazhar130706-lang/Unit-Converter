@@ -526,6 +526,27 @@ html, body, [data-testid="stAppViewContainer"] {
 
 /* ── divider ── */
 .rule { border: none; border-top: 1px solid var(--border); margin: 18px 0; }
+
+/* ── Logo block ── */
+.hdr-inner { display: flex; align-items: center; gap: 32px; }
+.logo-block { flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.logo-ring {
+    width: 92px; height: 92px; border-radius: 50%;
+    background: rgba(245,166,35,0.07);
+    border: 1.5px solid rgba(245,166,35,0.32);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+}
+.logo-ring::before {
+    content: ''; position: absolute; inset: 4px;
+    border-radius: 50%; border: 1px solid rgba(126,184,212,0.15);
+}
+.logo-ring img { width: 72px; height: 72px; object-fit: contain;
+    filter: brightness(1.05) drop-shadow(0 0 7px rgba(245,166,35,0.28)); }
+.logo-caption { font-family: 'JetBrains Mono', monospace; font-size: 8px;
+    letter-spacing: 1.5px; color: var(--text-lo); text-transform: uppercase;
+    text-align: center; line-height: 1.5; }
+.hdr-text { flex: 1; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -537,13 +558,24 @@ st.markdown("""
     <div class="corner corner-tr"></div>
     <div class="corner corner-bl"></div>
     <div class="corner corner-br"></div>
-    <div class="hdr-eyebrow">⬡ Precision Engineering Toolkit &nbsp;·&nbsp; System Ready</div>
-    <div class="hdr-title">MechCalc Pro</div>
-    <div class="hdr-sub">Unit Converter &amp; Material Density Reference</div>
-    <div class="hdr-meta">
-        <span class="meta-chip">Muneeb Azhar</span>
-        <span class="meta-chip">Roll No: 25-ME-27</span>
-        <span class="meta-chip">Dept. of Mechanical Engineering</span>
+    <div class="hdr-inner">
+        <div class="logo-block">
+            <div class="logo-ring">
+                <img src="https://www.uettaxila.edu.pk/images/Logos/uettaxila_logo.png"
+                     alt="UET Taxila Logo" />
+            </div>
+            <div class="logo-caption">UET Taxila<br>Est. 1975</div>
+        </div>
+        <div class="hdr-text">
+            <div class="hdr-eyebrow">⬡ Precision Engineering Toolkit &nbsp;·&nbsp; System Ready</div>
+            <div class="hdr-title">MechCalc Pro</div>
+            <div class="hdr-sub">Unit Converter &amp; Material Density Reference</div>
+            <div class="hdr-meta">
+                <span class="meta-chip">Muneeb Azhar</span>
+                <span class="meta-chip">Roll No: 25-ME-27</span>
+                <span class="meta-chip">Dept. of Mechanical Engineering</span>
+            </div>
+        </div>
     </div>
 </div>
 """, unsafe_allow_html=True)
@@ -867,7 +899,7 @@ with tab2:
 # ─── FOOTER ──────────────────────────────────────────────────────────────────────
 st.markdown("""
 <div class="footer">
-    <span class="footer-l">MechCalc Pro · Muneeb Azhar · 25-ME-27 · Mechanical Engineering</span>
+    <span class="footer-l">MechCalc Pro · Muneeb Azhar · 25-ME-27 · Mechanical Engineering · UET Taxila</span>
     <div class="footer-r">
         <span class="footer-dot">System Nominal</span>
         <span class="footer-dot">All Units Verified</span>
